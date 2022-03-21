@@ -1,0 +1,205 @@
+@font-face {
+  font-family: TTCommons-Regular;
+  src: url("../fonts/TTCommons/TTCommons-Regular.ttf");
+}
+
+@font-face {
+  font-family: TTCommons-Medium;
+  src: url("../fonts/TTCommons/TTCommons-Medium.ttf");
+}
+
+@font-face {
+  font-family: TTCommons-Semi;
+  src: url("../fonts/TTCommons/TTCommons-DemiBold.ttf");
+}
+
+@font-face {
+  font-family: TTCommons-Thin;
+  src: url("../fonts/TTCommons/TTCommons-Thin.ttf");
+}
+
+@font-face {
+  font-family: TTCommons-Bold;
+  src: url("../fonts/TTCommons/TTCommons-Bold.ttf");
+}
+
+body {
+  background-color: #070707;
+  overflow-x: hidden !important;
+  height: 100%;
+  position: relative;
+  margin: 0;
+}
+
+main {
+  height: 100vh;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: TTCommons-Semi;
+  margin-bottom: 0;
+  color: #fff;
+}
+
+a,
+button,
+label {
+  font-family: TTCommons-Semi;
+  cursor: pointer !important;
+  color: #fff;
+}
+
+label,
+b {
+  font-family: TTCommons-Medium;
+  color: #fff;
+}
+
+p,
+b,
+span,
+ol,
+em,
+i,
+button {
+    font-size: 18px;
+}
+
+button:focus {
+  outline: none !important;
+}
+
+textarea:focus {
+  outline: none !important;
+}
+
+p {
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+}
+
+p,
+span,
+ol,
+em,
+i,
+button {
+  font-family: TTCommons-Regular;
+  color: #fff;
+}
+
+small {
+  font-size: 12px;
+  color: #fff;
+}
+
+input {
+  font-family: TTCommons-Regular;
+  outline: none;
+}
+
+textarea,
+small {
+  font-family: TTCommons-Regular;
+  color: #fff;
+}
+
+table {
+  width: 100%;
+  color: #fff;
+}
+
+*::placeholder {
+  font-family: TTCommons-Regular;
+}
+
+.bold {
+  font-family: TTCommons-Bold;
+}
+
+.semi {
+  font-family: TTCommons-Semi;
+}
+
+.heading__regular {
+  font-size: 40px;
+}
+
+.h1 {
+  font-size: 40px;
+  font-family: TTCommons-Bold;
+}
+
+.h2 {
+  font-size: 30px;
+  font-family: TTCommons-Bold;
+}
+
+.h3 {
+  font-size: 22px;
+  font-family: TTCommons-Semi;
+}
+
+.h4 {
+  font-size: 20px;
+  font-family: TTCommons-Semi;
+}
+
+.h5,
+.h5 span {
+  font-size: 18px;
+  font-family: TTCommons-Semi;
+}
+
+.rel {
+  position: relative;
+}
+
+.non_btn {
+  border: none;
+  background: transparent;
+}
+
+.default__input {
+  border: none;
+  display: block;
+  border-radius: 8px;
+  padding: 8px;
+  margin: 8px 0;
+  width: 100%;
+}
+
+.default__btn {
+  border: none;
+  border-radius: 4px;
+  padding: 4px 8px;
+  font-family: TTCommons-Bold;
+}
+
+.default__btn_dark {
+  background: #fff;
+  color: #112550;
+}
+
+.default__link {
+  display: block;
+}
+
+.default__link_white {
+  color: #fff;
+  text-decoration: none;
+}
+
+.link__small {
+  font-size: 14px;
+}
+
+.default__link_white:hover {
+  color: #fff;
+  text-decoration: underline;
+}
