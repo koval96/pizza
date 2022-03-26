@@ -179,11 +179,8 @@ table {
   border-radius: 4px;
   padding: 4px 8px;
   font-family: TTCommons-Bold;
-}
-
-.default__btn_dark {
   background: #fff;
-  color: #112550;
+  color: #000;
 }
 
 .default__link {

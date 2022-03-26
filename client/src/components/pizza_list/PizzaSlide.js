@@ -1,16 +1,12 @@
 import SliderControl from "./SliderControl";
-import Pizza from "../pizza/Pizza";
-import AboutPizza from "../pizza/AboutPizza";
+import PizzaSlideElement from "./PizzaSlideElement";
 
-function PizzaSlide() {
+function PizzaSlide({ activePizza }) {
   return (
     <div className="slider">
       {/* false direction - left, true direction - right */}
       <SliderControl direction={false} />
-      <div className="pizza_list__container">
-        <Pizza />
-        <AboutPizza />
-      </div>
+      <PizzaSlideElement activePizza={activePizza} />
       <SliderControl direction={true} />
     </div>
   );

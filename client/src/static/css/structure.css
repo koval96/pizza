@@ -34,19 +34,31 @@
     justify-content: center;
 } */
 
-.main__content {
-  padding: 60px 70px;
-}
-
 @media (min-width: 1440px) {
   .mainContainer {
     padding-left: 210px;
     padding-right: 210px;
+  }
+
+  .main__content {
+    padding: 60px 70px;
   }
 }
 
 @media (min-width: 990px) {
   .navbar {
     padding: 30px 70px;
+  }
+}
+
+@media (min-width: 768px) {
+  .main__content {
+    padding: 60px 70px;
+  }
+}
+
+@media (max-width: 768px) {
+  .main__content {
+    padding: 60px 40px;
   }
 }

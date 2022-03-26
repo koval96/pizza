@@ -1,17 +1,29 @@
 .slider {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    height: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
 }
 
 .slider__arrow {
 }
 
 .btn_group__pizza {
-    margin-top: 10px;
+  margin-top: 10px;
 }
 
 .btn_group__pizza button {
-    margin: 0 4px;
+  margin: 0 4px;
+}
+
+.pizza__container {
+  max-width: 500px;
+}
+
+.order__btn {
+  min-width: 100px;
+}
+
+.slider__control {
+    cursor: pointer;
 }
