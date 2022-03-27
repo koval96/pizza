@@ -20,8 +20,6 @@ function Home() {
     },
     onError: (err) => {
       console.log(err)
-      localStorage.setItem("refreshToken", "")
-      localStorage.setItem("accessToken", "")
       toast.error("Ошибка при загрузке пицц");
     },
   });
