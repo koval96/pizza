@@ -9,6 +9,7 @@ class ExtendedUser(AbstractUser):
     type = models.CharField(max_length=10)
     liked_pizzas = models.ForeignKey('Pizza', on_delete=models.DO_NOTHING, null=True, blank=True)
     orders = models.ManyToManyField("Order", related_name="user_orders", blank=True)
+    cart = models.ManyToManyField("Pizza", related_name="user_cart", blank=True)
 
     USERNAME_FIELD = "username"
     EMAIL_FIELD = "email"

@@ -15,7 +15,7 @@ import App from "./App";
 import AuthLayer from "./components/auth/AuthLayer";
 import "./static/css/core.css";
 
-const DEV = false;
+const DEV = process.env.REACT_APP_DEV;
 
 // APOLLO CONFIGURATION
 const errorLink = onError(({ graphQLErrors, networkError }) => {
