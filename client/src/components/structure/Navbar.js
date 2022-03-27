@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 
 import { UserContext } from "../auth/AuthLayer";
@@ -9,10 +9,22 @@ import logo from "../../static/images/logo.svg";
 import cart from "../../static/images/cart.svg";
 import userImg from "../../static/images/user.svg";
 
+import { GlobalContext } from '../../App'
+
 function Navbar() {
   const url = useLocation().pathname;
   const isAuthPage = url == "/login" || url == "/register";
-  const { user } = useContext(UserContext)
+  const { user } = useContext(UserContext);
+  const { ordersCount, setOrdersCount } = useContext(GlobalContext)
+
+  useEffect(() => {
+    if (localStorage.getItem("cart"))
+      setOrdersCount(JSON.parse(localStorage.getItem("cart")).length);
+    else {
+      localStorage.setItem("cart", JSON.stringify([]))
+      setOrdersCount(0);
+    }
+  }, []);
 
   return (
     <div className={`navbar rel ${isAuthPage && "justify-content-center"}`}>
@@ -28,7 +40,10 @@ function Navbar() {
       {!isAuthPage && (
         <div className="user__container">
           {user.id && <b className="balance me-2">140 ₽</b>}
-          <img src={cart} alt="cart" width="30px" className="me-2" />
+          <div className="rel me-2">
+            <img src={cart} alt="cart" width="30px" />
+            <b className="orders__number">{ordersCount}</b>
+          </div>
           <Link to={"/profile"}>
             <img src={userImg} alt="user" width="20px" />
           </Link>

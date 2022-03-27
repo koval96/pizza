@@ -44,6 +44,23 @@
   width: 100vw;
 }
 
+.user__container {
+  display: flex;
+}
+
+.orders__number {
+  position: absolute;
+  right: -8px;
+  top: -8px;
+  height: 20px;
+  width: 20px;
+  font-size: 16px;
+  text-align: center;
+  border-radius: 50%;
+  background: #fff;
+  color: #000;
+}
+
 @media (min-width: 1440px) {
   .mainContainer {
     padding-left: 210px;
@@ -62,8 +79,9 @@
 }
 
 @media (min-width: 768px) {
-  .main__content, .navbar {
-    padding: 40px 70px;
+  .main__content,
+  .navbar {
+    padding: 30px 70px;
   }
 }
 

@@ -1,27 +1,26 @@
 import React, { useState } from "react";
-import PizzaSlide from "../pizza_list/PizzaSlide";
+import { useQuery } from "@apollo/client";
+import toast from "react-hot-toast";
 
+import PizzaSlide from "../pizza_list/PizzaSlide";
+import Loader from "../../utils/Loader";
 import "../../static/css/home.css";
+
+import { GET_ALL_PIZZAS } from "../../gql/queries/getAllPizzas";
 
 export const HomeContext = React.createContext();
 
 function Home() {
-  const [pizzas, setPizzas] = useState([
-    {
-      id: 1,
-      title: "Мясная пицца",
-      ingredients: "тесто, салат, томатный соус, сыр",
+  const [pizzas, setPizzas] = useState();
+  const [activePizza, setActivePizza] = useState();
+  const { loading } = useQuery(GET_ALL_PIZZAS, {
+    onCompleted: (data) => {
+      setPizzas(data.getAllPizzas);
+      setActivePizza(data.getAllPizzas[0]);
     },
-    {
-      id: 2,
-      title: "Грибная пицца",
-      ingredients: "тесто, грибы, сырный соус, томаты",
+    onError: (err) => {
+      toast.error("Ошибка при загрузке пицц");
     },
-  ]);
-  const [activePizza, setActivePizza] = useState({
-    id: 1,
-    title: "Мясная пицца",
-    ingredients: "тесто, салат, томатный соус, сыр",
   });
 
   return (
@@ -33,7 +32,8 @@ function Home() {
         setActivePizza,
       }}
     >
-      <PizzaSlide activePizza={activePizza} />
+      <Loader loading={loading} />
+      {activePizza && <PizzaSlide activePizza={activePizza} />}
     </HomeContext.Provider>
   );
 }

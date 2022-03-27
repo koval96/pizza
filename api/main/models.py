@@ -15,13 +15,16 @@ class ExtendedUser(AbstractUser):
 
 class Pizza(models.Model):
     name = models.CharField(max_length=100)
-    ingredients = models.ForeignKey('Ingredient', on_delete=models.DO_NOTHING, blank=True)
+    ingredients = models.ManyToManyField('Ingredient', related_name="pizza_ingredients", blank=True)
     size = models.CharField(max_length=10, blank=True)
     is_shown = models.BooleanField(default=False) # Показывается ли пицца на главном экране
 class Ingredient(models.Model):
     name = models.CharField(max_length=100)
     type = models.CharField(max_length=50)
     slices = models.IntegerField(default=8)
+
+    def __str__(self):
+        return self.name
 class Order(models.Model):
     user = models.ForeignKey(ExtendedUser, on_delete=models.CASCADE)
     pizzas = models.ManyToManyField(Pizza, related_name="order_pizzas", blank=True)
