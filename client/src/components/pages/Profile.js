@@ -10,6 +10,8 @@ function Profile() {
   const [revokeToken, { loading }] = useMutation(REVOKE_TOKEN, {
     onCompleted: (data) => {
       toast.success("Вы успешно вышли из аккаунта");
+      localStorage.setItem("refreshToken", "")
+      localStorage.setItem("accessToken", "")
       setUser({});
     },
     onError: (err) => {
