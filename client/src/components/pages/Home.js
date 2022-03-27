@@ -19,6 +19,7 @@ function Home() {
       setActivePizza(data.getAllPizzas[0]);
     },
     onError: (err) => {
+      console.log(err)
       toast.error("Ошибка при загрузке пицц");
     },
   });
