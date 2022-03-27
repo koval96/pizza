@@ -9,19 +9,19 @@ import logo from "../../static/images/logo.svg";
 import cart from "../../static/images/cart.svg";
 import userImg from "../../static/images/user.svg";
 
-import { GlobalContext } from '../../App'
+import { GlobalContext } from "../../App";
 
 function Navbar() {
   const url = useLocation().pathname;
   const isAuthPage = url == "/login" || url == "/register";
   const { user } = useContext(UserContext);
-  const { ordersCount, setOrdersCount } = useContext(GlobalContext)
+  const { ordersCount, setOrdersCount } = useContext(GlobalContext);
 
   useEffect(() => {
     if (localStorage.getItem("cart"))
       setOrdersCount(JSON.parse(localStorage.getItem("cart")).length);
     else {
-      localStorage.setItem("cart", JSON.stringify([]))
+      localStorage.setItem("cart", JSON.stringify([]));
       setOrdersCount(0);
     }
   }, []);
@@ -40,10 +40,12 @@ function Navbar() {
       {!isAuthPage && (
         <div className="user__container">
           {user.id && <b className="balance me-2">140 ₽</b>}
-          <div className="rel me-2">
-            <img src={cart} alt="cart" width="30px" />
-            <b className="orders__number">{ordersCount}</b>
-          </div>
+          <Link to={"/cart"}>
+            <div className="rel me-2">
+              <img src={cart} alt="cart" width="30px" />
+              <b className="orders__number">{ordersCount}</b>
+            </div>
+          </Link>
           <Link to={"/profile"}>
             <img src={userImg} alt="user" width="20px" />
           </Link>

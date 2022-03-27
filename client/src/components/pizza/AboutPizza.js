@@ -31,13 +31,13 @@ function AboutPizza({ pizza }) {
             localStorage.setItem(
               "cart",
               JSON.stringify(
-                [...JSON.parse(localStorage.getItem("cart")), pizza]
+                [...JSON.parse(localStorage.getItem("cart")).filter(p => p.id !== pizza.id), pizza]
               )
             );
             setOrdersCount(JSON.parse(localStorage.getItem("cart")).length)
           }}
         >
-          Заказать сейчас
+          Добавить в корзину
         </button>
         <button className="default__btn">
           <img src={pen} alt="pen" />

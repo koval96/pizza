@@ -9,7 +9,7 @@ import Home from "./components/pages/Home";
 import Login from "./components/pages/Login";
 import Profile from "./components/pages/Profile";
 import Register from "./components/pages/Register";
-import Loader from "./utils/Loader";
+import Cart from "./components/pages/Cart";
 
 import "./static/css/structure.css";
 
@@ -50,6 +50,9 @@ function App() {
               </Route>
               <Route path="/register">
                 <Register />
+              </Route>
+              <Route path="/cart">
+                <Cart />
               </Route>
               <ProtectedRoute path="/profile">
                 <Profile />

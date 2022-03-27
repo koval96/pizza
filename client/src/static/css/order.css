@@ -1,0 +1,27 @@
+.pizza__cart {
+  width: 100%;
+  background: #141414;
+  padding: 12px 20px;
+  border-radius: 4px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.pizza__name {
+    font-size: 32px;
+}
+
+.counter {
+    align-items: center;
+}
+
+.counter__symbol {
+    font-size: 36px;
+    cursor: pointer;
+    margin-top: 4px;
+}
+
+.counter__number {
+    font-size: 24px;
+    margin-top: 4px;
+}
