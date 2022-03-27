@@ -17,4 +17,3 @@ logs/
 celerybeat-schedule                                                                     
 .ipynb_checkpoints
 venv/
-settings.py
