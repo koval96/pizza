@@ -27,3 +27,9 @@
 .slider__control {
     cursor: pointer;
 }
+
+@media (max-width: 768px) {
+  .slider__control img {
+    width: 20px;
+  }
+}

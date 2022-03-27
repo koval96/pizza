@@ -34,6 +34,16 @@
     justify-content: center;
 } */
 
+.main__content {
+  height: 100%;
+}
+
+.cover__screen {
+  position: fixed;
+  height: 100vh;
+  width: 100vw;
+}
+
 @media (min-width: 1440px) {
   .mainContainer {
     padding-left: 210px;
@@ -52,13 +62,17 @@
 }
 
 @media (min-width: 768px) {
-  .main__content {
-    padding: 60px 70px;
+  .main__content, .navbar {
+    padding: 40px 70px;
   }
 }
 
 @media (max-width: 768px) {
   .main__content {
     padding: 60px 40px;
+  }
+
+  .navbar {
+    padding: 20px 40px;
   }
 }

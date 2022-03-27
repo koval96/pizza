@@ -67,7 +67,7 @@ ol,
 em,
 i,
 button {
-    font-size: 18px;
+  font-size: 18px;
 }
 
 button:focus {
@@ -184,7 +184,12 @@ table {
 }
 
 .default__link {
-  display: block;
+  text-decoration: none;
+}
+
+.default__link:hover {
+  color: #fff;
+  text-decoration: underline;
 }
 
 .default__link_white {
@@ -199,4 +204,12 @@ table {
 .default__link_white:hover {
   color: #fff;
   text-decoration: underline;
+}
+
+.customToast {
+  z-index: 10001;
+}
+
+.loader {
+  position: fixed;
 }
