@@ -114,6 +114,10 @@ table {
   color: #fff;
 }
 
+img {
+  cursor: pointer;
+}
+
 *::placeholder {
   font-family: TTCommons-Regular;
 }
@@ -212,4 +216,6 @@ table {
 
 .loader {
   position: fixed;
+  top: 100px;
+  left: 50%;
 }

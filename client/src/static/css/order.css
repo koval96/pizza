@@ -25,3 +25,21 @@
     font-size: 24px;
     margin-top: 4px;
 }
+
+@media(max-width: 576px) {
+    .pizza__cart {
+        margin-top: 52px !important;
+        justify-content: center;
+    }
+
+    .pizza__controls {
+        position: absolute;
+        right: 0;
+        top: -52px;
+    }
+
+    .pizza_cart__container {
+        display: block !important;
+        text-align: center;
+    }
+}

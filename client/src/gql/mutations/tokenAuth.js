@@ -11,6 +11,17 @@ export const TOKEN_AUTH = gql`
         firstName
         lastName
         type
+        isStaff
+        cart {
+          id
+          name
+          ingredients {
+            name
+            type
+            slices
+          }
+          volume
+        }
       }
     }
   }

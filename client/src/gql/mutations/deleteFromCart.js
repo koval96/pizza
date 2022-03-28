@@ -1,14 +1,8 @@
 import { gql } from "@apollo/client";
 
-export const GET_USER_INFO = gql`
-  query ($username: String!) {
-    getUserInfo(username: $username) {
-      id
-      username
-      firstName
-      lastName
-      type
-      isStaff
+export const DELETE_FROM_CART = gql`
+  mutation ($username: String!, $id: ID!) {
+    deleteFromCart(username: $username, id: $id) {
       cart {
         id
         name

@@ -6,14 +6,14 @@ from main.gql.auth.queries import AuthQueries
 from main.gql.auth.mutations import AuthMutations
 
 from main.gql.pizza.queries import PizzaQueries
-# from main.gql.pizza.mutations import AuthMutations
+from main.gql.pizza.mutations import PizzaMutations
 
 
 class Query(AuthQueries, PizzaQueries):
     pass
 
 
-class Mutation(AuthMutations):
+class Mutation(AuthMutations, PizzaMutations):
     pass
 
 schema = graphene.Schema(query=Query, mutation=Mutation)

@@ -4,11 +4,11 @@ import PizzaCartControls from "./PizzaCartControls";
 
 import pizza from "../../static/images/pizza.png";
 
-function PizzaCart({ item }) {
+function PizzaCart({ item, items, setItems }) {
   const [counter, setCounter] = useState(1);
   return (
-    <div className="pizza__cart mt-2">
-      <div className="d-flex align-items-center">
+    <div className="pizza__cart mt-2 rel">
+      <div className="d-flex align-items-center pizza_cart__container">
         <img src={pizza} alt="pizza" width="120px" />
         <div className="pizza__details ms-4">
           <p className="pizza__name">{item.name}</p>
@@ -27,7 +27,13 @@ function PizzaCart({ item }) {
           </p>
         </div>
       </div>
-      <PizzaCartControls counter={counter} setCounter={setCounter} />
+      <PizzaCartControls
+        item={item}
+        items={items}
+        setItems={setItems}
+        counter={counter}
+        setCounter={setCounter}
+      />
     </div>
   );
 }

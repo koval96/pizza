@@ -18,13 +18,17 @@ function Navbar() {
   const { ordersCount, setOrdersCount } = useContext(GlobalContext);
 
   useEffect(() => {
-    if (localStorage.getItem("cart"))
-      setOrdersCount(JSON.parse(localStorage.getItem("cart")).length);
-    else {
-      localStorage.setItem("cart", JSON.stringify([]));
-      setOrdersCount(0);
+    if (!user.username) {
+      if (localStorage.getItem("cart"))
+        setOrdersCount(JSON.parse(localStorage.getItem("cart")).length);
+      else {
+        localStorage.setItem("cart", JSON.stringify([]));
+        setOrdersCount(0);
+      }
+    } else {
+      setOrdersCount(user.cart ? user.cart.length : 0)
     }
-  }, []);
+  }, [user]);
 
   return (
     <div className={`navbar rel ${isAuthPage && "justify-content-center"}`}>

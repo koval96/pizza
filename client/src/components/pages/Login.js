@@ -57,48 +57,50 @@ function Login() {
     });
   }
   return (
+    
     <>
       <Loader loading={loading} />
-      <div className="container login__container">
-        <div>
-          <h1>
-            Мы тебя
-            <br />
-            ждали!
-          </h1>
+    <div className="container login__container">
+      
+      <div>
+        <h1>
+          Мы тебя
+          <br />
+          ждали!
+        </h1>
 
-          <form onSubmit={(e) => handleAuth(e)}>
-            <input
-              className="default__input"
-              type="text"
-              placeholder="Логин"
-              defaultValue={username}
-              onChange={(e) => setUsername(e.target.value)}
-              required
-            />
-            <input
-              className="default__input"
-              type="password"
-              placeholder="Пароль"
-              defaultValue={password}
-              onChange={(e) => setPassword(e.target.value)}
-              required
-            />
+        <form onSubmit={(e) => handleAuth(e)}>
+          <input
+            className="default__input"
+            type="text"
+            placeholder="Логин"
+            defaultValue={username}
+            onChange={(e) => setUsername(e.target.value)}
+            required
+          />
+          <input
+            className="default__input"
+            type="password"
+            placeholder="Пароль"
+            defaultValue={password}
+            onChange={(e) => setPassword(e.target.value)}
+            required
+          />
 
-            <div className="d-flex">
-              <span>
-                Нет аккаунта -{" "}
-                <Link className="default__link" to={"/register"}>
-                  Регистрация
-                </Link>
-              </span>
-            </div>
-            <button type="submit" className="default__btn mt-2">
-              Войти
-            </button>
-          </form>
-        </div>
+          <div className="d-flex">
+            <span>
+              Нет аккаунта -{" "}
+              <Link className="default__link" to={"/register"}>
+                Регистрация
+              </Link>
+            </span>
+          </div>
+          <button type="submit" className="default__btn mt-2">
+            Войти
+          </button>
+        </form>
       </div>
+    </div>
     </>
   );
 }
