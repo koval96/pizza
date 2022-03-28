@@ -15,10 +15,16 @@ function DeliveryForm({ orders, setOrders, setItems }) {
 
   const [order, { loading }] = useMutation(ORDER, {
     onCompleted: (data) => {
-      setOrders([
-        ...orders.filter((order) => order !== data.order.order.id),
-        data.order.order,
-      ]);
+      if (orders) {
+        setOrders([
+            ...orders.filter((order) => order !== data.order.order.id),
+            data.order.order,
+          ]);
+      } else {
+        setOrders([
+            data.order.order,
+        ]);
+      }
       if (!user.username) {
         localStorage.setItem(
           "orders",
