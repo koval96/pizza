@@ -27,7 +27,7 @@ function AboutPizza({ pizza }) {
 
   return (
     <>
-      {/* <Loader loading={loading} /> */}
+      <Loader loading={loading} />
       <div className="text-center mt-3">
         <p className="heading__regular">{pizza.name}</p>
         <p>

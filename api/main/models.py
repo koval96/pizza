@@ -20,6 +20,9 @@ class Pizza(models.Model):
     size = models.CharField(max_length=10, blank=True)
     is_shown = models.BooleanField(default=False) # Показывается ли пицца на главном экране
     volume = models.IntegerField(default=1)
+
+    class Meta:
+        ordering = ("id",)
 class Ingredient(models.Model):
     name = models.CharField(max_length=100)
     type = models.CharField(max_length=50)

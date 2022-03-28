@@ -34,10 +34,6 @@
     justify-content: center;
 } */
 
-.main__content {
-  height: 100%;
-}
-
 .cover__screen {
   position: fixed;
   height: 100vh;
