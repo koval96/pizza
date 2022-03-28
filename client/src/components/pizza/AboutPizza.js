@@ -59,7 +59,7 @@ function AboutPizza({ pizza }) {
                 );
                 setOrdersCount(JSON.parse(localStorage.getItem("cart")).length);
               } else {
-                if (user.cart.filter((i) => i.name == pizza.name).length == 0) {
+                if (!user.cart || (user.cart && user.cart.filter((i) => i.name == pizza.name).length == 0)) {
                   addToCart({
                     variables: {
                       id: pizza.id,
