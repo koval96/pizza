@@ -59,6 +59,7 @@ function AboutPizza({ pizza }) {
                 );
                 setOrdersCount(JSON.parse(localStorage.getItem("cart")).length);
               } else {
+                console.log(user.username)
                 if (user.cart.filter((i) => i.name == pizza.name).length == 0) {
                   addToCart({
                     variables: {

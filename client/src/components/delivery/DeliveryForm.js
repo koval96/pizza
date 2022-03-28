@@ -29,7 +29,7 @@ function DeliveryForm({ orders, setOrders, setItems }) {
         );
         localStorage.setItem("cart", JSON.stringify([]));
       } else {
-        setUser({ ...user, orders: [data.order.order, ...user.orders] });
+        setUser({ ...user, orders: [data.order.order, ...user.orders], cart: [] });
       }
       setOrdersCount(0);
       setItems([]);
