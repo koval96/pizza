@@ -70,7 +70,15 @@ function AboutPizza({ pizza }) {
               }
             }}
           >
-            Добавить в корзину
+            {user.username
+              ? user.cart && user.cart.filter((i) => i.name == pizza.name).length !== 0
+                ? "В корзине"
+                : "Добавить в корзину"
+              : JSON.parse(localStorage.getItem("cart")).filter(
+                  (i) => i.name == pizza.name
+                ).length > 0
+              ? "В корзине"
+              : "Добавить в корзину"}
           </button>
           <button className="default__btn">
             <img src={pen} alt="pen" />
