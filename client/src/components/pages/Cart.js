@@ -1,18 +1,28 @@
 import { useState, useEffect, useContext } from "react";
 
 import PizzaCart from "../pizza/PizzaCart";
+import DeliveryForm from "../delivery/DeliveryForm";
+import OrderCard from "../delivery/OrderCard";
 
 import "../../static/css/order.css";
 
-import { UserContext } from '../auth/AuthLayer'
+import { UserContext } from "../auth/AuthLayer";
 
 function Cart() {
   const [items, setItems] = useState();
-  const { user } = useContext(UserContext)
+  const [orders, setOrders] = useState();
+  const { user } = useContext(UserContext);
+
+  useEffect(() => {
+    if (!localStorage.getItem("orders")) {
+      localStorage.setItem("orders", JSON.stringify([]))
+    }
+  }, [])
 
   useEffect(() => {
     if (!user.username) {
       const cartList = localStorage.getItem("cart");
+      const orderList = localStorage.getItem("orders");
       if (cartList) {
         setItems(
           JSON.parse(cartList).sort((a, b) => {
@@ -20,8 +30,15 @@ function Cart() {
           })
         );
       }
+
+      if (orderList) {
+        setOrders(JSON.parse(orderList));
+      } else {
+        setOrders([])
+      }
     } else {
-      setItems(user.cart)
+      setItems(user.cart);
+      setOrders(user.orders);
     }
   }, [user]);
   return (
@@ -38,7 +55,25 @@ function Cart() {
             />
           );
         })}
+
       {items && items.length == 0 && <p>В корзине ничего нет</p>}
+      {items && items.length !== 0 && (
+        <DeliveryForm
+          orders={orders}
+          setOrders={setOrders}
+          setItems={setItems}
+        />
+      )}
+
+      <h1 className="mt-4">Ваши заказы</h1>
+
+      {orders && orders.length == 0 && <p>Заказов нет</p>}
+
+      {orders && orders.map((order, idx) => {
+        return (
+          <OrderCard order={order} key={idx} />
+        )
+      })}
     </div>
   );
 }

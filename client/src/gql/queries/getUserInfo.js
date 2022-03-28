@@ -19,6 +19,21 @@ export const GET_USER_INFO = gql`
         }
         volume
       }
+
+      orders {
+        id
+        phone
+        adress
+        pizzas {
+          name
+          ingredients {
+            name
+            type
+            slices
+          }
+          volume
+        }
+      }
     }
   }
 `;

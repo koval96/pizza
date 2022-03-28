@@ -94,7 +94,7 @@ function PizzaCartControls({ item, counter, setCounter, items, setItems }) {
       <Loader loading={changeVolumeLoading || deleteLoading} />
       <div className="d-flex align-items-center pizza__controls">
         <div className="me-4">
-          <p className="counter__number">140₽</p>
+          <p className="counter__number">{140 * counter}₽</p>
         </div>
         <div className="counter d-flex me-4">
           <span

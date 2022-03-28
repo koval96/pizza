@@ -10,6 +10,7 @@ class ExtendedUser(AbstractUser):
     liked_pizzas = models.ForeignKey('Pizza', on_delete=models.DO_NOTHING, null=True, blank=True)
     orders = models.ManyToManyField("Order", related_name="user_orders", blank=True)
     cart = models.ManyToManyField("Pizza", related_name="user_cart", blank=True)
+    custom_pizzas = models.ManyToManyField("Pizza", related_name="user_custom_pizzas", blank=True)
 
     USERNAME_FIELD = "username"
     EMAIL_FIELD = "email"
@@ -31,6 +32,10 @@ class Ingredient(models.Model):
     def __str__(self):
         return self.name
 class Order(models.Model):
-    user = models.ForeignKey(ExtendedUser, on_delete=models.CASCADE)
+    user = models.ForeignKey(ExtendedUser, on_delete=models.CASCADE, null=True, blank=True)
     pizzas = models.ManyToManyField(Pizza, related_name="order_pizzas", blank=True)
     adress = models.CharField(max_length=200, blank=True)
+    phone = models.CharField(max_length=50, blank=True)
+
+    class Meta:
+        ordering = ("-id",)
