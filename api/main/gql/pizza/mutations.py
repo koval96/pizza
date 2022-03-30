@@ -90,6 +90,7 @@ class Order(graphene.Mutation):
         order.save()
         return Order(order=order)
 
+
 class CreatePizzaForCart(graphene.Mutation):
     class Arguments:
         name = graphene.String(required=True)
@@ -101,8 +102,8 @@ class CreatePizzaForCart(graphene.Mutation):
 
     @classmethod
     def mutate(cls, root, info, name, ingredients, size, slices):
-        pizza = Pizza.objects.create(name=name, size=size, slices=slices, is_shown=False)
-        
+        pizza = Pizza.objects.create(
+            name=name, size=size, slices=slices, is_shown=False)
 
         ingredients = json.loads(ingredients)
         for ingredient in ingredients:
@@ -112,9 +113,26 @@ class CreatePizzaForCart(graphene.Mutation):
         return CreatePizzaForCart(pizza=pizza)
 
 
+class ChangeOrderStatus(graphene.Mutation):
+    class Arguments:
+        id = graphene.ID(required=True)
+        status = graphene.String(required=True)
+
+    order = graphene.Field(OrderType)
+
+    @classmethod
+    def mutate(cls, root, info, id, status):
+        order = OrderModel.objects.get(id=id)
+        order.status = status
+        order.save()
+
+        return ChangeOrderStatus(order=order)
+
+
 class PizzaMutations(graphene.ObjectType):
     add_to_cart = AddToCart.Field()
     delete_from_cart = DeleteFromCart.Field()
     change_volume_cart = ChangeVolumeCart.Field()
     order = Order.Field()
     create_pizza_for_cart = CreatePizzaForCart.Field()
+    change_order_status = ChangeOrderStatus.Field()

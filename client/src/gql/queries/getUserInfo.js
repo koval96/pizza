@@ -25,6 +25,7 @@ export const GET_USER_INFO = gql`
         id
         phone
         adress
+        status
         pizzas {
           id
           name

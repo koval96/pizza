@@ -73,6 +73,18 @@
   z-index: 2;
 }
 
+.footer {
+  padding: 10px 20px;
+  background: #141414;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.main__content {
+  min-height: 100%;
+}
+
 @media (min-width: 1440px) {
   .mainContainer {
     padding-left: 210px;

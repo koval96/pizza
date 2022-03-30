@@ -1,18 +1,23 @@
 import PizzaImage from "../pizza/PizzaImage";
-import pizzaImg from "../../static/images/pizza.png";
 
-function OrderCard({ order }) {
+function OrderCard({ order, isAdmin }) {
   return (
     <div className="pizza_order__card">
       <p>
         <b>Адрес:</b> {order.adress}
+      </p>
+      <p>
+        <b>Телефон:</b> {order.phone}
+      </p>
+      <p>
+        Статус заказа: <b>{order.status}</b>
       </p>
       {order.pizzas.map((pizza, idx) => {
         return (
           <div className="pizza_order_entity__card" key={idx}>
             <div className="d-flex align-items-center pizza_cart__container">
               <PizzaImage ingredients={pizza.ingredients} width={"120px"} />
-              <div className="pizza__details ms-4">
+              <div className="pizza__details ms-4 pizza_cart__container">
                 <div className="d-flex">
                   <p className="pizza__name">
                     {pizza.name !== "" ? pizza.name : "Кастомная пицца"}

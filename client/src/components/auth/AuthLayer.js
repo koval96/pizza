@@ -1,6 +1,8 @@
 import React, { useState, useEffect, useContext } from "react";
 import { useMutation, useLazyQuery } from "@apollo/client";
 
+import Loader from '../../utils/Loader'
+
 import { UPDATE_REFRESH_TOKEN } from "../../gql/mutations/refreshToken";
 import { GET_USER_INFO } from "../../gql/queries/getUserInfo";
 
@@ -66,7 +68,7 @@ function AuthLayer({ children }) {
   return (
     <UserContext.Provider value={{ user, setUser, loading, infoLoading }}>
       <>
-        {/*<Loader loading={loading} />*/}
+        <Loader loading={loading || infoLoading} />
         {children}
       </>
     </UserContext.Provider>

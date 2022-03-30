@@ -81,6 +81,10 @@
     text-align: center;
   }
 
+  .pizza__details {
+      margin-left: 0 !important;
+  }
+
   .delivery__input {
     width: 100%;
   }

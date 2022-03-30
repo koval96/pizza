@@ -33,6 +33,7 @@ export const ORDER = gql`
         }
         adress
         phone
+        status
       }
     }
   }

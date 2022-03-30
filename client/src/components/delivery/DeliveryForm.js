@@ -13,17 +13,45 @@ function DeliveryForm({ orders, setOrders, setItems }) {
   const { user, setUser } = useContext(UserContext);
   const { setOrdersCount } = useContext(GlobalContext);
 
+  function setLastOrderAdress(orders) {
+    let ordersTemp = [];
+    if (user.username) {
+      ordersTemp = user.orders;
+    } else {
+      ordersTemp = JSON.parse(localStorage.getItem("orders"));
+    }
+
+    const lastOrderId = Math.max.apply(
+      Math,
+      ordersTemp.map(function (o) {
+        return o.id;
+      })
+    );
+
+    let lastOrderAdress = "";
+
+    if (user.username) {
+      lastOrderAdress = user.orders.filter(
+        (order) => order.id == lastOrderId
+      )[0].adress;
+    } else {
+      lastOrderAdress = JSON.parse(localStorage.getItem("orders")).filter(
+        (order) => order.id == lastOrderId
+      )[0].adress;
+    }
+
+    setAdress(lastOrderAdress);
+  }
+
   const [order, { loading }] = useMutation(ORDER, {
     onCompleted: (data) => {
       if (orders) {
         setOrders([
-            ...orders.filter((order) => order !== data.order.order.id),
-            data.order.order,
-          ]);
-      } else {
-        setOrders([
-            data.order.order,
+          ...orders.filter((order) => order !== data.order.order.id),
+          data.order.order,
         ]);
+      } else {
+        setOrders([data.order.order]);
       }
       if (!user.username) {
         localStorage.setItem(
@@ -35,7 +63,11 @@ function DeliveryForm({ orders, setOrders, setItems }) {
         );
         localStorage.setItem("cart", JSON.stringify([]));
       } else {
-        setUser({ ...user, orders: [data.order.order, ...user.orders], cart: [] });
+        setUser({
+          ...user,
+          orders: [data.order.order, ...user.orders],
+          cart: [],
+        });
       }
       setOrdersCount(0);
       setItems([]);
@@ -80,6 +112,18 @@ function DeliveryForm({ orders, setOrders, setItems }) {
           onChange={(e) => setAdress(e.target.value)}
           required
         />
+        {(user.username
+          ? user.orders.length > 0
+          : JSON.parse(localStorage.getItem("orders")).length > 0) && (
+          <div
+            style={{ cursor: "pointer" }}
+            onClick={() => {
+              setLastOrderAdress();
+            }}
+          >
+            <b>Взять адрес с прошлого заказа</b>
+          </div>
+        )}
         <button className="default__btn">Заказать</button>
       </form>
     </div>

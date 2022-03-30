@@ -26,7 +26,7 @@
 body {
   background-color: #070707;
   overflow-x: hidden !important;
-  height: 100%;
+  height: 100vh;
   position: relative;
   margin: 0;
 }
@@ -91,6 +91,10 @@ i,
 button {
   font-family: TTCommons-Regular;
   color: #fff;
+}
+
+a {
+  text-decoration-color: #fff;
 }
 
 small {
@@ -220,4 +224,5 @@ img {
   right: 0; 
   margin-left: auto; 
   margin-right: auto; 
+  z-index: 10;
 }

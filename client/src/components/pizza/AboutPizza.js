@@ -90,9 +90,6 @@ function AboutPizza({ pizza }) {
           >
             <img src={pen} alt="pen" />
           </button>
-          <button className="default__btn">
-            <img src={love} alt="love" />
-          </button>
         </div>
         <button
           className="default__btn mt-2"
