@@ -10,6 +10,7 @@ import Login from "./components/pages/Login";
 import Profile from "./components/pages/Profile";
 import Register from "./components/pages/Register";
 import Cart from "./components/pages/Cart";
+import EditPizza from "./components/pages/EditPizza";
 
 import "./static/css/structure.css";
 
@@ -53,6 +54,9 @@ function App() {
               </Route>
               <Route path="/cart">
                 <Cart />
+              </Route>
+              <Route path="/edit/:id">
+                <EditPizza />
               </Route>
               <ProtectedRoute path="/profile">
                 <Profile />

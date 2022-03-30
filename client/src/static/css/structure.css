@@ -59,6 +59,20 @@
   color: #000;
 }
 
+.ingredient__container {
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+.sauce__ingredient {
+  z-index: 1;
+}
+
+.only__ingredient {
+  z-index: 2;
+}
+
 @media (min-width: 1440px) {
   .mainContainer {
     padding-left: 210px;

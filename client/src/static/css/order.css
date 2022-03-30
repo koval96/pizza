@@ -31,12 +31,12 @@
 }
 
 .pizza_order__card {
-    margin-top: 32px;
+  margin-top: 32px;
 }
 
 .pizza_order__card {
-    margin-top: 16px;
-} 
+  margin-top: 16px;
+}
 
 .pizza_order_entity__card {
   width: 100%;
@@ -46,6 +46,18 @@
   display: flex;
   margin-top: 8px;
   justify-content: space-between;
+}
+
+.pizza__size {
+  background: lightgray;
+  color: #000;
+  height: 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 4px 4px 0 4px;
+  border-radius: 4px;
+  font-family: TTCommons-Bold;
 }
 
 @media (max-width: 576px) {

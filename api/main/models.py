@@ -18,16 +18,16 @@ class ExtendedUser(AbstractUser):
 class Pizza(models.Model):
     name = models.CharField(max_length=100)
     ingredients = models.ManyToManyField('Ingredient', related_name="pizza_ingredients", blank=True)
-    size = models.CharField(max_length=10, blank=True)
+    size = models.CharField(max_length=10, blank=True, default="M")
     is_shown = models.BooleanField(default=False) # Показывается ли пицца на главном экране
     volume = models.IntegerField(default=1)
+    slices = models.IntegerField(default=8)
 
     class Meta:
         ordering = ("id",)
 class Ingredient(models.Model):
     name = models.CharField(max_length=100)
     type = models.CharField(max_length=50)
-    slices = models.IntegerField(default=8)
 
     def __str__(self):
         return self.name
@@ -36,6 +36,7 @@ class Order(models.Model):
     pizzas = models.ManyToManyField(Pizza, related_name="order_pizzas", blank=True)
     adress = models.CharField(max_length=200, blank=True)
     phone = models.CharField(max_length=50, blank=True)
+    status = models.CharField(max_length=20, default="готовится")
 
     class Meta:
         ordering = ("-id",)

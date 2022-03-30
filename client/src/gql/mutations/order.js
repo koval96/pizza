@@ -16,18 +16,20 @@ export const ORDER = gql`
       order {
         id
         pizzas {
+          id
           name
           ingredients {
             name
             type
-            slices
           }
           volume
+          slices
+          size
         }
         user {
-            username
-            firstName
-            lastName
+          username
+          firstName
+          lastName
         }
         adress
         phone

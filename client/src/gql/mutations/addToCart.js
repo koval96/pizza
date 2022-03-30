@@ -9,9 +9,10 @@ export const ADD_TO_CART = gql`
         ingredients {
           name
           type
-          slices
         }
         volume
+        slices
+        size
       }
     }
   }

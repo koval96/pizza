@@ -9,9 +9,10 @@ export const DELETE_FROM_CART = gql`
         ingredients {
           name
           type
-          slices
         }
         volume
+        slices
+        size
       }
     }
   }

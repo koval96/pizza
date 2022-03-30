@@ -9,6 +9,8 @@ export const GET_ALL_PIZZAS = gql`
         name
         type
       }
+      slices
+      size
     }
   }
 `;

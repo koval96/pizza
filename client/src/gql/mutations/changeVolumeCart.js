@@ -9,8 +9,9 @@ export const CHANGE_VOLUME_CART = gql`
         ingredients {
           name
           type
-          slices
         }
+        slices
+        size
         volume
       }
     }

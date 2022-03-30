@@ -2,7 +2,7 @@ import graphene
 import graphql_jwt
 import json
 
-from main.models import ExtendedUser, Pizza, Order as OrderModel
+from main.models import ExtendedUser, Ingredient, Pizza, Order as OrderModel
 from main.gql.types import PizzaType, OrderType
 
 
@@ -84,12 +84,32 @@ class Order(graphene.Mutation):
             user.orders.add(order)
 
         pizzas = json.loads(pizzas)
-        print(pizzas)
         for pizza in pizzas:
             pizza = Pizza.objects.get(id=int(pizza['id']))
             order.pizzas.add(pizza)
         order.save()
         return Order(order=order)
+
+class CreatePizzaForCart(graphene.Mutation):
+    class Arguments:
+        name = graphene.String(required=True)
+        ingredients = graphene.String(required=True)
+        size = graphene.String(required=True)
+        slices = graphene.Int(required=True)
+
+    pizza = graphene.Field(PizzaType)
+
+    @classmethod
+    def mutate(cls, root, info, name, ingredients, size, slices):
+        pizza = Pizza.objects.create(name=name, size=size, slices=slices, is_shown=False)
+        
+
+        ingredients = json.loads(ingredients)
+        for ingredient in ingredients:
+            ingredient = Ingredient.objects.get(id=int(ingredient['id']))
+            pizza.ingredients.add(ingredient)
+        pizza.save()
+        return CreatePizzaForCart(pizza=pizza)
 
 
 class PizzaMutations(graphene.ObjectType):
@@ -97,3 +117,4 @@ class PizzaMutations(graphene.ObjectType):
     delete_from_cart = DeleteFromCart.Field()
     change_volume_cart = ChangeVolumeCart.Field()
     order = Order.Field()
+    create_pizza_for_cart = CreatePizzaForCart.Field()

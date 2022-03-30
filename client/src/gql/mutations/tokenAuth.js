@@ -18,8 +18,9 @@ export const TOKEN_AUTH = gql`
           ingredients {
             name
             type
-            slices
           }
+          slices
+          size
           volume
         }
       }

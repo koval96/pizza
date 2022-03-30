@@ -1,6 +1,7 @@
 import { useContext, useEffect } from "react";
 import { useMutation } from "@apollo/client";
 import toast from "react-hot-toast";
+import { useHistory } from "react-router-dom";
 
 import pen from "../../static/images/pen.svg";
 import love from "../../static/images/love.svg";
@@ -14,10 +15,11 @@ import { ADD_TO_CART } from "../../gql/mutations/addToCart";
 function AboutPizza({ pizza }) {
   const { setOrdersCount } = useContext(GlobalContext);
   const { user, setUser } = useContext(UserContext);
+  const history = useHistory();
 
   const [addToCart, { loading }] = useMutation(ADD_TO_CART, {
     onCompleted: (data) => {
-      console.log(user.cart, data.addToCart.cart)
+      console.log(user.cart, data.addToCart.cart);
       setUser({ ...user, cart: data.addToCart.cart });
     },
     onError: (err) => {
@@ -59,7 +61,7 @@ function AboutPizza({ pizza }) {
                 );
                 setOrdersCount(JSON.parse(localStorage.getItem("cart")).length);
               } else {
-                console.log(user.username)
+                console.log(user.username);
                 if (user.cart.filter((i) => i.name == pizza.name).length == 0) {
                   addToCart({
                     variables: {
@@ -72,7 +74,8 @@ function AboutPizza({ pizza }) {
             }}
           >
             {user.username
-              ? user.cart && user.cart.filter((i) => i.name == pizza.name).length !== 0
+              ? user.cart &&
+                user.cart.filter((i) => i.name == pizza.name).length !== 0
                 ? "В корзине"
                 : "Добавить в корзину"
               : JSON.parse(localStorage.getItem("cart")).filter(
@@ -81,13 +84,22 @@ function AboutPizza({ pizza }) {
               ? "В корзине"
               : "Добавить в корзину"}
           </button>
-          <button className="default__btn">
+          <button
+            className="default__btn"
+            onClick={() => history.push(`/edit/${pizza.id}`)}
+          >
             <img src={pen} alt="pen" />
           </button>
           <button className="default__btn">
             <img src={love} alt="love" />
           </button>
         </div>
+        <button
+          className="default__btn mt-2"
+          onClick={() => history.push(`/edit/${0}`)}
+        >
+          Своя пицца
+        </button>
       </div>
     </>
   );

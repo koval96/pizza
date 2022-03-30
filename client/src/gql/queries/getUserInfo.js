@@ -15,9 +15,10 @@ export const GET_USER_INFO = gql`
         ingredients {
           name
           type
-          slices
         }
         volume
+        slices
+        size
       }
 
       orders {
@@ -25,13 +26,15 @@ export const GET_USER_INFO = gql`
         phone
         adress
         pizzas {
+          id
           name
           ingredients {
             name
             type
-            slices
           }
           volume
+          slices
+          size
         }
       }
     }
