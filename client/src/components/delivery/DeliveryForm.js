@@ -1,8 +1,10 @@
 import { useState, useContext } from "react";
 import { useMutation } from "@apollo/client";
+import toast from "react-hot-toast";
+
+import { MapDiv } from "../../utils/Map";
 
 import { ORDER } from "../../gql/mutations/order";
-import toast from "react-hot-toast";
 
 import { UserContext } from "../auth/AuthLayer";
 import { GlobalContext } from "../../App";
@@ -112,6 +114,7 @@ function DeliveryForm({ orders, setOrders, setItems }) {
           onChange={(e) => setAdress(e.target.value)}
           required
         />
+        <MapDiv setAdress={setAdress} />
         {(user.username
           ? user.orders.length > 0
           : JSON.parse(localStorage.getItem("orders")).length > 0) && (
