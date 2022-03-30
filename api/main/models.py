@@ -36,6 +36,7 @@ class Order(models.Model):
     pizzas = models.ManyToManyField(Pizza, related_name="order_pizzas", blank=True)
     adress = models.CharField(max_length=200, blank=True)
     phone = models.CharField(max_length=50, blank=True)
+    status = models.CharField(max_length=50, blank=True, default="waiting")
 
     class Meta:
         ordering = ("-id",)

@@ -6,6 +6,7 @@ import toast from "react-hot-toast";
 
 import { UserContext } from "../auth/AuthLayer";
 import { GlobalContext } from "../../App";
+import { MapDiv } from "../map/Map";
 
 function DeliveryForm({ orders, setOrders, setItems }) {
   const [phone, setPhone] = useState();
@@ -17,12 +18,12 @@ function DeliveryForm({ orders, setOrders, setItems }) {
     onCompleted: (data) => {
       if (orders) {
         setOrders([
-            ...orders.filter((order) => order !== data.order.order.id),
-            data.order.order,
-          ]);
+          ...orders.filter((order) => order !== data.order.order.id),
+          data.order.order,
+        ]);
       } else {
         setOrders([
-            data.order.order,
+          data.order.order,
         ]);
       }
       if (!user.username) {
@@ -72,6 +73,7 @@ function DeliveryForm({ orders, setOrders, setItems }) {
           onChange={(e) => setPhone(e.target.value)}
           required
         />
+        <MapDiv setAdress={setAdress} />
         <input
           type="text"
           className="default__input delivery__input"

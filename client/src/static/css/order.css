@@ -48,6 +48,16 @@
   justify-content: space-between;
 }
 
+.order_info{
+  width: max(300px, 40%);
+  display: flex;
+  justify-content: space-between;
+}
+
+.qr{
+  grid-row: span(3);
+}
+
 @media (max-width: 576px) {
   .pizza__cart {
     margin-top: 52px !important;

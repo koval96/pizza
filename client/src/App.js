@@ -12,6 +12,8 @@ import Register from "./components/pages/Register";
 import Cart from "./components/pages/Cart";
 
 import "./static/css/structure.css";
+import AdminPanel from "./components/pages/AdminPanel";
+import Order from "./components/pages/Order";
 
 export const GlobalContext = React.createContext();
 
@@ -50,6 +52,12 @@ function App() {
               </Route>
               <Route path="/register">
                 <Register />
+              </Route>
+              <Route path="/adminpan">
+                <AdminPanel />
+              </Route>
+              <Route path="/order/:id">
+                <Order />
               </Route>
               <Route path="/cart">
                 <Cart />

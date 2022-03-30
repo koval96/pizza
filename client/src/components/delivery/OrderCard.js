@@ -1,5 +1,5 @@
 import pizzaImg from "../../static/images/pizza.png";
-
+import QRCode from 'qrcode.react';
 function OrderCard({ order }) {
   return (
     <div className="pizza_order__card">
@@ -9,6 +9,7 @@ function OrderCard({ order }) {
           <div className="pizza_order_entity__card" key={idx}>
             <div className="d-flex align-items-center pizza_cart__container">
               <img src={pizzaImg} alt="pizza" width="120px" />
+              <QRCode value="https://reactjs.org/" renderAs="canvas" />,
               <div className="pizza__details ms-4">
                 <p className="pizza__name">{pizza.name}</p>
                 <p>
