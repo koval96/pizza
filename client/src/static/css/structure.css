@@ -85,6 +85,14 @@
   min-height: 100%;
 }
 
+.pizza__loader {
+  /* min-width: 300px; */
+  /* height: 300px; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 @media (min-width: 1440px) {
   .mainContainer {
     padding-left: 210px;

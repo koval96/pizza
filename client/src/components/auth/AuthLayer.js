@@ -69,7 +69,7 @@ function AuthLayer({ children }) {
     <UserContext.Provider value={{ user, setUser, loading, infoLoading }}>
       <>
         <Loader loading={loading || infoLoading} />
-        {children}
+        {(!loading && !infoLoading) && children}
       </>
     </UserContext.Provider>
   );

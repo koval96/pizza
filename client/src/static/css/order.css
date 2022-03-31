@@ -60,6 +60,8 @@
   font-family: TTCommons-Bold;
 }
 
+
+
 @media (max-width: 576px) {
   .pizza__cart {
     margin-top: 52px !important;
@@ -82,10 +84,22 @@
   }
 
   .pizza__details {
-      margin-left: 0 !important;
+    margin-left: 0 !important;
   }
 
   .delivery__input {
     width: 100%;
+  }
+
+  .M {
+    transform: scale(0.8);
+  }
+
+  .S {
+    transform: scale(0.6);
+  }
+
+  .L {
+    transform: scale(1);
   }
 }

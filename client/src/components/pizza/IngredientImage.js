@@ -17,7 +17,7 @@ import masl from "../../static/images/masl.png";
 import rukola from "../../static/images/rukula.png";
 import rozm from "../../static/images/rozmarin.png";
 
-function IngredientImage({ ingredient, width }) {
+function IngredientImage({ ingredient, width, loaded, setLoaded }) {
   const [img, setImg] = useState();
   const loc = useLocation().pathname.split("/");
   useEffect(() => {
@@ -73,7 +73,12 @@ function IngredientImage({ ingredient, width }) {
         ingredient.type == "sauce" ? "sauce__ingredient" : "only__ingredient"
       }`}
     >
-      <img src={img} alt="" width={width ? width : "100%"} />
+      <img
+        src={img}
+        alt=""
+        width={width ? width : "100%"}
+        onLoad={() => setLoaded(loaded + 1)}
+      />
     </motion.div>
   );
 }

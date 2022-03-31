@@ -43,7 +43,7 @@ function EditPizza() {
       history.push("/cart");
     },
     onError: (err) => {
-      console.log(err)
+      console.log(err);
       toast.error("Произошла ошибка");
     },
   });
@@ -161,21 +161,34 @@ function EditPizza() {
                   Кол-во кусков
                 </label>
               </h4>
-              <input
-                id={"slices"}
-                type="number"
-                className="default__input"
-                min="1"
-                defaultValue={slices}
-                onChange={(e) => {
-                  e.target.value < 0
-                    ? (e.target.value = 1)
-                    : setSlices(e.target.value)
-                }}
-                placeholder="Кол-во кусков"
-              />
+              <div className="size_changer__container">
+                <p
+                  className={`size_changer__item ${
+                    slices == "4" ? "size_changer__item_active" : ""
+                  }`}
+                  onClick={() => setSlices("4")}
+                >
+                  4
+                </p>
+                <p
+                  className={`size_changer__item ms-1 ${
+                    slices == "6" ? "size_changer__item_active" : ""
+                  }`}
+                  onClick={() => setSlices("6")}
+                >
+                  6
+                </p>
+                <p
+                  className={`size_changer__item ms-1 ${
+                    slices == "8" ? "size_changer__item_active" : ""
+                  }`}
+                  onClick={() => setSlices("8")}
+                >
+                  8
+                </p>
+              </div>
               <button
-                className="default__btn mt-2 mb-4"
+                className="default__btn mt-4 mb-4"
                 onClick={() => {
                   createPizza({
                     variables: {
@@ -192,7 +205,12 @@ function EditPizza() {
             </div>
           </div>
           <div className="pizza_img__container col-md-6 col-sm-12 order-md-2">
-            <PizzaImage ingredients={pizzaIngredients} />
+            <PizzaImage
+              ingredients={pizzaIngredients}
+              size={size}
+              slices={slices}
+              pizza={pizza}
+            />
           </div>
         </div>
       ) : (

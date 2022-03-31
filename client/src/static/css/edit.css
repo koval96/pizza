@@ -44,3 +44,64 @@
 .size_changer__item_active {
   opacity: 1;
 }
+
+.pizza__divider {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  padding-left: auto;
+  padding-right: auto;
+}
+
+.M {
+  transform: scale(1);
+}
+
+.S {
+  transform: scale(0.8);
+}
+
+.L {
+  transform: scale(1.2);
+}
+
+.vertical__line {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+  z-index: 3;
+  width: 8px;
+  height: 100%;
+  background: #000;
+}
+
+.horizontal__line {
+  transform: rotate(90deg);
+}
+
+.diagonal__line {
+  transform: rotate(45deg);
+}
+
+.diagonal__line_6 {
+  transform: rotate(60deg);
+}
+
+@media (max-width: 576px) {
+  .M {
+    transform: scale(0.8);
+  }
+
+  .S {
+    transform: scale(0.6);
+  }
+
+  .L {
+    transform: scale(1);
+  }
+}

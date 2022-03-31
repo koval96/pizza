@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { useMutation, useQuery } from "@apollo/client";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import toast from "react-hot-toast";
 import PizzaImage from "../pizza/PizzaImage";
 import QRCode from "qrcode";
@@ -58,6 +58,9 @@ function OrderTicket() {
   return (
     <>
       <Loader loading={loading || changeStatusLoading} />
+      <Link to={"/profile"}>
+        <b>Вернуться обратно</b>
+      </Link>
       {order && (
         <>
           <h1>Заказ {order.id}</h1>
