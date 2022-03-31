@@ -27,7 +27,7 @@ function SliderControl({ direction }) {
 
   return (
     <div className="slider__control" onClick={() => paginate()}>
-      <img src={direction ? ar : al} alt="" />
+      <img className="slider__arrow" src={direction ? ar : al} alt="" />
     </div>
   );
 }

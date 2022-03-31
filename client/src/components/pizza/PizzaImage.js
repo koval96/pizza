@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { useLocation } from 'react-router-dom'
 
 import IngredientImage from "../pizza/IngredientImage";
 import PizzaDivider from "./PizzaDivider";
@@ -6,6 +7,7 @@ import basePizza from "../../static/images/bare_pizza.png";
 
 function PizzaImage({ pizza, ingredients, width, size, slices }) {
   const [loaded, setLoaded] = useState(0);
+  const loc = useLocation()
 
   useEffect(() => {
     if (ingredients.length < loaded - 1) {

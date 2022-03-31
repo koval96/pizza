@@ -2,16 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1b48152d-5a4b-44c1-b165-fb4c2c89e921" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/api/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/api/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/api/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/api/api/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/main/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/api/main/admin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/main/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/api/main/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/structure/Navbar.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/structure/Navbar.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/pizza/PizzaImage.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/pizza/PizzaImage.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/pizza_list/SliderControl.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/pizza_list/SliderControl.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/static/css/core.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/static/css/core.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/static/css/home.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/static/css/home.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/static/css/structure.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/static/css/structure.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -30,6 +25,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="settings.editor.selected.configurable" value="reference.settings.project.statistic.project.settings" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -41,7 +37,26 @@
       <option name="presentableId" value="Default" />
       <updated>1648383762800</updated>
       <workItem from="1648383765996" duration="37000" />
+      <workItem from="1648727455424" duration="327000" />
     </task>
     <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>
