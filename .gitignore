@@ -31,6 +31,7 @@ logs/
 *.log
 *.pickle
 *.db
+*.sqlite3
 *.rdb
 *.pid
 *.toc
@@ -38,4 +39,5 @@ logs/
 *.pickle
 celerybeat-schedule                                                                     
 .ipynb_checkpoints
+venv/
 build/
