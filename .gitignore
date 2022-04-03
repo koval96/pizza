@@ -38,5 +38,4 @@ logs/
 *.pickle
 celerybeat-schedule                                                                     
 .ipynb_checkpoints
-venv/
 build/
