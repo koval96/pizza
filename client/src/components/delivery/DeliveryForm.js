@@ -114,7 +114,6 @@ function DeliveryForm({ orders, setOrders, setItems }) {
           onChange={(e) => setAdress(e.target.value)}
           required
         />
-        <MapDiv setAdress={setAdress} />
         {(user.username
           ? user.orders.length > 0
           : JSON.parse(localStorage.getItem("orders")).length > 0) && (
@@ -127,7 +126,8 @@ function DeliveryForm({ orders, setOrders, setItems }) {
             <b>Взять адрес с прошлого заказа</b>
           </div>
         )}
-        <button className="default__btn">Заказать</button>
+        <MapDiv setAdress={setAdress} />
+        <button className="default__btn mt-3">Заказать</button>
       </form>
     </div>
   );

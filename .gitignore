@@ -36,7 +36,6 @@ logs/
 *.toc
 *.out
 *.pickle
-*.sqlite3
 celerybeat-schedule                                                                     
 .ipynb_checkpoints
 venv/
